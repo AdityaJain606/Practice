@@ -1,0 +1,60 @@
+// Creating the hash table
+
+#include <bits/stdc++.h>
+#define max 1000 
+using namespace std;
+int has[max+1][2];
+
+
+
+bool search(int x){
+    if(x>=0){
+        if(has[x][0]==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    else{
+        x=abs(x);
+        if(has[x][1]==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+
+void insert(int a[],int n){
+    for(int i=0;i<n;i++){
+        if(a[i]>=0){
+            has[a[i]][0]=1;
+        }
+        else{
+            has[abs(a[i])][1]=1;
+        }
+    }
+}
+
+int main()
+{
+int n;
+cin>>n;
+int a[n];
+for(int i=0;i<n;i++){
+    cin>>a[i];
+    
+}
+int x=-19;
+insert(a,n);
+if(search(x)){
+    cout<<"true";
+}
+else{
+    cout<<"false";
+}
+  
+}
